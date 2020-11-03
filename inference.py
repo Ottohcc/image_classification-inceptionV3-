@@ -36,12 +36,12 @@ def inference(photo):
             # 将四维数组压缩成一维数组，由于全连接层输入时有batch的维度，所以用列表作为输入
             image_values = [np.squeeze(image_values)]
 
-            image = tf.image.decode_jpeg(image_data)
-            if image.dtype != tf.float32:
-                print('.', end='')
-                image = tf.image.convert_image_dtype(image, dtype=tf.float32)
-                image = tf.compat.v1.image.resize_images(image, [299, 299])
-                image_values = sess.run(image)
+            #image = tf.image.decode_jpeg(image_data)
+            #if image.dtype != tf.float32:
+            #    print('.', end='')
+            #    image = tf.image.convert_image_dtype(image, dtype=tf.float32)
+            #    image = tf.compat.v1.image.resize_images(image, [299, 299])
+            #    image_values = sess.run(image)
 
             # 加载图和变量
             saver = tf.train.import_meta_graph('Model/model.ckpt.meta')
